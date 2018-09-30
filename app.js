@@ -1,12 +1,12 @@
 
-var app = {
+const app = {
     title: 'JSX Web App',
     content: 'This is a small demo using JSX template',
     options: ['One', 'Two']
 };
 
 // JSX - JavaScript XML
-var template = (
+const template = (
     <div>
         <h1>{app.title}</h1>
         {app.content && <p>{app.content}</p>}
@@ -37,13 +37,13 @@ function getLocation(city){
     }
 }
 
-var user = {
+const user = {
  name: 'Luis Casas',
  age: 21,
  city: 'Edinburgh'
 };
 
-var templateTwo = (
+const templateTwo = (
     <div>
         <h1>{user.name ? user.name : 'Unknown'}</h1>
         {user.age >= 18 && <p>Age: {user.age} </p>}
@@ -51,7 +51,7 @@ var templateTwo = (
     </div>
 );
 
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
 
 ReactDOM.render(template, appRoot);
