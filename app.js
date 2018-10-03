@@ -44,7 +44,16 @@ const user = {
 
 const appRoot = document.getElementById('app');
 
-const numbers = [55, 66, 100];
+const removeAll = () => {
+    app.options = [];
+    renderTemplate();
+};
+
+const onMakeDecision = () => {
+    const randomNum = Math.floor(Math.random() * app.options.length);
+    const option = app.options[randomNum];
+    alert(option);
+};
 
 // JSX - JavaScript XML
 const renderTemplate = () => {
@@ -54,6 +63,7 @@ const renderTemplate = () => {
             {app.content && <p>{app.content}</p>}
             {getOptions(app.options)}
             <p>{app.options.length}</p>
+            <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
             <button onClick={removeAll}>Remove All</button>
             <ol>
                 {app.options.map((option) => <li key={option}>Option {option}</li>)}
@@ -66,11 +76,6 @@ const renderTemplate = () => {
     );
 
     ReactDOM.render(template, appRoot);
-};
-
-const removeAll = () => {
-    app.options = [];
-    renderTemplate();
 };
 
 renderTemplate();
