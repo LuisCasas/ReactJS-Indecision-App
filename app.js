@@ -44,6 +44,8 @@ const user = {
 
 const appRoot = document.getElementById('app');
 
+const numbers = [55, 66, 100];
+
 // JSX - JavaScript XML
 const renderTemplate = () => {
     const template = (
@@ -53,10 +55,9 @@ const renderTemplate = () => {
             {getOptions(app.options)}
             <p>{app.options.length}</p>
             <button onClick={removeAll}>Remove All</button>
-            <ul>
-                <li>Option 1</li>
-                <li>Option 2</li>
-            </ul>
+            <ol>
+                {app.options.map((option) => <li key={option}>Option {option}</li>)}
+            </ol>
             <form onSubmit={onFormSubmit}>
                 <input type="text" name="option" />
                 <button>Add option</button>
