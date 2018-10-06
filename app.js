@@ -1,81 +1,61 @@
+/*
+    ## command line to run babel react$:
+    babel src\app.js --out-file=public/scripts/app.js --presets=env,react --watch
+*/
 
-const app = {
-    title: 'JSX Web App',
-    content: 'This is a small demo using JSX template',
-    options: []
-};
-
-const onFormSubmit = (e) => {
-    e.preventDefault();
-
-    const option = e.target.elements.option.value;
-
-    if(option){
-        app.options.push(option);
-        e.target.elements.option.value = '';
-        renderTemplate();
-    }
-}
-
-function getOptions(options){
-
-    if(options && options.length > 0){
+class Header extends React.Component {
+    render(){
         return (
             <div>
-                <p>These are your options</p>
+                <h1>Indecision</h1>
+                <h2>Put your life in the hands of a computer</h2>
             </div>
         );
     }
-
-    return <p>There are no options</p>;
 }
 
-function getLocation(city){
-    if(city){
-        return <p>Location: {city}</p>;
+class Action extends React.Component{
+    render(){
+        return (
+            <div>
+                <button>What should I do?</button>
+            </div>
+        );
     }
 }
 
-const user = {
- name: 'Luis Casas',
- age: 21,
- city: 'Edinburgh'
-};
+class Options extends React.Component{
+    render(){
+        return(
+            <div>
+                <p>Your options here:</p>
+                <ol>
+                    <li>Option 1</li>
+                </ol>
+            </div>
+        );
+    }
+}
 
-const appRoot = document.getElementById('app');
+class AddOption extends React.Component{
+    render(){
+        return(
+            <div>
+                <p>Add options here</p>
+            </div>
+        );
+    }
+}
 
-const removeAll = () => {
-    app.options = [];
-    renderTemplate();
-};
 
-const onMakeDecision = () => {
-    const randomNum = Math.floor(Math.random() * app.options.length);
-    const option = app.options[randomNum];
-    alert(option);
-};
 
-// JSX - JavaScript XML
-const renderTemplate = () => {
-    const template = (
-        <div>
-            <h1>{app.title}</h1>
-            {app.content && <p>{app.content}</p>}
-            {getOptions(app.options)}
-            <p>{app.options.length}</p>
-            <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
-            <button onClick={removeAll}>Remove All</button>
-            <ol>
-                {app.options.map((option) => <li key={option}>Option {option}</li>)}
-            </ol>
-            <form onSubmit={onFormSubmit}>
-                <input type="text" name="option" />
-                <button>Add option</button>
-            </form>
-        </div>
-    );
+const jsx = (
+    <div>
+        <Header />
+        <Action />
+        <Options />
+        <AddOption />
+    </div>
+)
 
-    ReactDOM.render(template, appRoot);
-};
-
-renderTemplate();
+ReactDOM.render(jsx, document.getElementById('app'));
