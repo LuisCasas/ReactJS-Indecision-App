@@ -5,6 +5,21 @@
     live-server public
 */
 
+
+/*
+const obj = {
+    name: 'John',
+    getName(){
+        return this.name;
+    }
+}
+
+const getName = obj.getName.bind(obj);
+
+console.log(getName());
+
+*/
+
 class IndecisionApp extends React.Component{
     render(){
 
@@ -51,14 +66,19 @@ class Action extends React.Component{
 
 class Options extends React.Component{
 
-    removeAll(){
-        console.log('Remove all');
+    constructor(props){
+        super(props);
+        this.handleRemoveAll = this.handleRemoveAll.bind(this);
+    }
+
+    handleRemoveAll(){
+        console.log(this.props.options);
     }
 
     render(){
         return(
             <div>
-                <p><button onClick={this.removeAll}>Remove All</button> </p>
+                <p><button onClick={this.handleRemoveAll}>Remove All</button> </p>
                 <p>Your options here:</p>
                 <p>Number of options: {this.props.options.length}</p>
                 <ul>
