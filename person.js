@@ -1,3 +1,5 @@
-export const isAdult = (age) => age >= 18;
+const isAdult = (age) => age >= 18;
+const canDrive = (age) => age >= 21;
+const isSeniorPerson = (age) => age >= 65;
 
-export const canDrive = (age) => age >= 21;
+export {isAdult, canDrive, isSeniorPerson as default};
