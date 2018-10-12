@@ -1,15 +1,6 @@
-import isSenior, {isAdult, canDrive} from './person.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log(isAdult(21));
-console.log(canDrive(18));
-console.log(isSenior(88));
+import IndecisionApp from './components/IndecisionApp';
 
-
-/*
-import subtract, { square, add } from "./utils.js";
-
-console.log('Webpack running!!');
-console.log(square(9));
-console.log(add(200, 66));
-console.log(subtract(21, 7));
-*/
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
