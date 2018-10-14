@@ -1,8 +1,7 @@
 import React from 'react';
 import Option from './Option';
 
-const Options = (props) => {
-    return(
+const Options = (props) => (
         <div>
             <p><button onClick={props.handleDeleteOptions}>Remove All</button> </p>
             <p>Number of options: {props.options.length}</p>
@@ -19,7 +18,7 @@ const Options = (props) => {
                 }
             </ul>
         </div>
-    );
-};
+);
+
 
 export default Options;
